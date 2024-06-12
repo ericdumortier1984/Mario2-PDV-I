@@ -1,0 +1,7 @@
+﻿  Game.cpp
+C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(81,58): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+  Mario the Climber.vcxproj -> C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\x64\Debug\Mario the Climber.exe
