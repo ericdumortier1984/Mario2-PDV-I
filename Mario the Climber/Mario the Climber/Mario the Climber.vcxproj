@@ -135,13 +135,17 @@
   <ItemGroup>
     <ClInclude Include="Afichmation.h" />
     <ClInclude Include="Animation.h" />
+    <ClInclude Include="Counter.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Includes&amp;usings.h" />
+    <ClInclude Include="Shell.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Afichmation.cpp" />
+    <ClCompile Include="Counter.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Go.cpp" />
+    <ClCompile Include="Shell.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

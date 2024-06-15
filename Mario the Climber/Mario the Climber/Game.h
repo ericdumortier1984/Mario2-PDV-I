@@ -2,6 +2,8 @@
 #include "Includes&usings.h"
 #include "Afichmation.h"
 #include "Animation.h"
+#include "Counter.h"
+#include "Shell.h"
 
 class Game
 {
@@ -18,6 +20,18 @@ private:
 	// Escenario de fondo
 	Texture* _backTx;
 	Sprite* _backSp;
+	Texture* _doorTx;
+	Sprite* _door;
+
+	// Temporizador
+	Counter* _timer;
+
+	// Textos y fuente
+	Font* _font;
+	Text* _gameOverText;
+
+	Shell* _shellStack;
+	Sprite* _shellGetToPop;
 
 	// Mario
 	Texture* _marioTex;
@@ -34,6 +48,10 @@ private:
 	void DrawGame();
 	void CheckGameConditions();// Verifica las condiciones de victoria o derrota
 	void GameOver();// Muestra la pantalla de "Game Over"
+	void PushShell(int _x);
+	void PopShell();
+	void LoadStack();
+	void UpdateStack();
 
 	// Variables de estado del juego
 	bool _gameOver;

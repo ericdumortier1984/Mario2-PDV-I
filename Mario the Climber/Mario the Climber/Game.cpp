@@ -8,6 +8,7 @@ Game::Game()
 	_wnd->setFramerateLimit(60);
 	_gameOver = false;
 	_youWin = false;
+	_shellGetToPop = NULL;
 
 	// Inicialización del fondo
 	_backTx = new Texture;
@@ -15,8 +16,28 @@ Game::Game()
 	_backTx->loadFromFile("Asset/Images/fondo_plataformas.png");
 	_backSp->setTexture(*_backTx);
 
+	_doorTx = new Texture;
+	_door = new Sprite;
+	_doorTx->loadFromFile("Asset/Images/puerta.png");
+	_door->setTexture(*_doorTx);
+	_door->setPosition(370, _floor - 24);
+	_door->setOrigin(_door->getOrigin().x / 2, 0);
+
+	// Inicialización de textos y fuente
+	_font = new Font;
+	_font->loadFromFile("Asset/Font/junegull.ttf");
+	_gameOverText = new Text;
+	_gameOverText->setFont(*_font);
+
+	// Inicialización del temporizador
+	_timer = new Counter();
+	_timer->InitCounter();
+
+
 	// Inicialización de Mario
 	InitMario();
+
+	LoadStack();
 }
 
 void Game::DoEvents()
@@ -98,6 +119,7 @@ void Game::Loop()
 			_wnd->setMouseCursorVisible(false);// Oculta el cursor del mouse
 			DoEvents();
 			DrawGame();
+			_timer->UpdateCounter();
 			_mario->Update();
 			ProcessCollision();
 			CheckGameConditions();
@@ -142,11 +164,41 @@ void Game::GameOver()
 {
 }
 
+void Game::PushShell(int _x)
+{
+
+	Shell* newShell = new Shell(_x, _wnd->getSize().y);
+	newShell->_nextShell = _shellStack;
+	_shellStack = newShell;
+}
+
+void Game::PopShell()
+{
+
+	Shell* aux = _shellStack;
+	_shellGetToPop = aux->_shellSp;
+	_shellStack = aux->_nextShell;
+	delete aux;
+}
+
+void Game::LoadStack()
+{
+
+	PushShell(50);
+}
+
+
 void Game::DrawGame()
 {
 	//Limpia la ventana, dibuja y muestra todos los elementos
 	_wnd->clear();
 	_wnd->draw(*_backSp);
+	if (_shellGetToPop != NULL)
+	{
+		_wnd->draw(*_shellGetToPop);
+	}
+	_timer->Draw(*_wnd);
+	_wnd->draw(*_door);
 	_wnd->draw(*_mario);
 	_wnd->display();
 }

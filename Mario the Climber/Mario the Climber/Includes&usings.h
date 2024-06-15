@@ -3,6 +3,7 @@
 
 #pragma once // Evita que un archivo de encabezado se incluya más de una vez en un programa
 #include <ctime>// Biblioteca que proporciona funciones para trabajar con fechas y horas
+#include <string>
 #include <list>// Biblioteca que proporciona una estructura de datos de lista doblemente enlazada
 #include <initializer_list>// Biblioteca que permite la creación de listas inicializadoras
 #include <iostream>// Biblioteca que proporciona funciones para la entrada y salida de datos
