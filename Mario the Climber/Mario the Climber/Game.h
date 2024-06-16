@@ -11,7 +11,7 @@ private:
 	// Propiedades relacionadas con el mundo del juego
 	const int _w_x_min = 0;// Límite izquierdo de la pantalla
 	const int _w_x_max = 800;// Límite derecho de la pantalla
-	const int _floor = 480;// Posicion del piso
+	const int _floor[6] = { 30, 110, 180, 255, 335, 480 };// Posicion de las plataformas
 	const float _gravity = 0.5f;// Aceleración de la gravedad
 
 	// Ventana del juego

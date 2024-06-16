@@ -20,7 +20,7 @@ Game::Game()
 	_door = new Sprite;
 	_doorTx->loadFromFile("Asset/Images/puerta.png");
 	_door->setTexture(*_doorTx);
-	_door->setPosition(370, _floor - 24);
+	_door->setPosition(370, _floor[0] - 4);
 	_door->setOrigin(_door->getOrigin().x / 2, 0);
 
 	// Inicialización de textos y fuente
@@ -96,17 +96,16 @@ void Game::DoEvents()
 		_velocity.y += _gravity;
 		_mario->move(0, _velocity.y);
 
-		if (_mario->getPosition().y >= _floor)
+		if (_mario->getPosition().y >= _floor[5])
 		{
-			//piso
-			_mario->setPosition(Vector2f(_mario->getPosition().x, _floor));// Coloca a Mario sobre el piso
+			//llega a la plataforma
+			_mario->setPosition(Vector2f(_mario->getPosition().x, _floor[5]));// Coloca a Mario sobre la plataforma
 			_isJumping = false;// Establece que Mario ya no está saltando
 			_velocity.y = -10.f;// Reinicia la velocidad vertical inicial para el salto
 		}
 	}
 	if (e.key.code == Keyboard::R) { _wnd->close(); new Game; };//reiniciar juego
 }
-
 
 void Game::Loop()
 {
@@ -116,7 +115,7 @@ void Game::Loop()
 	{
 		if (!_gameOver && !_youWin)
 		{
-			_wnd->setMouseCursorVisible(false);// Oculta el cursor del mouse
+			_wnd->setMouseCursorVisible(true);// Oculta el cursor del mouse
 			DoEvents();
 			DrawGame();
 			_timer->UpdateCounter();
@@ -144,7 +143,7 @@ void Game::InitMario()
 	_mario->Play("idle");// Establecer la animación inicial en "idle"
 	_mario->setScale(Vector2f(0.20f, 0.20f));// Escalar el sprite de Mario a un 20% de su tamaño
 	_mario->setOrigin(_mario->getOrigin().x / 2, _mario->getGlobalBounds().height - 16);// Establece el origen en el centro del ancho y 16 pixeles en alto
-	_mario->setPosition(Vector2f(50.f, 480.f));// Posicion inicial en x e y
+	_mario->setPosition(Vector2f(50.f, _floor[5]));// Posicion inicial en x e y
 	_mario->FlipX(true);// Comienza el sprite mirando a la derecha
 	_velocity = Vector2f(5.f, 0.f);// Setear la velocidad x en 5 (es constante)
 	_isJumping = false;
@@ -186,7 +185,6 @@ void Game::LoadStack()
 
 	PushShell(50);
 }
-
 
 void Game::DrawGame()
 {
