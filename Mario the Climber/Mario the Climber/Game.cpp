@@ -149,7 +149,7 @@ void Game::InitMario()
 	_mario->Play("idle");// Establecer la animación inicial en "idle"
 	_mario->setScale(Vector2f(0.20f, 0.20f));// Escalar el sprite de Mario a un 20% de su tamaño
 	_mario->setOrigin(_mario->getOrigin().x / 2, _mario->getGlobalBounds().height - 16);// Establece el origen en el centro del ancho y 16 pixeles en alto
-	_mario->setPosition(Vector2f(50.f, _floor[5]));// Posicion inicial en x e y
+	_mario->setPosition(Vector2f(50.f, _floor[6]));// Posicion inicial en x e y
 	_mario->FlipX(true);// Comienza el sprite mirando a la derecha
 	_velocity = Vector2f(5.f, 0.f);// Setear la velocidad x en 5 (es constante)
 	_isJumping = false;
@@ -159,19 +159,36 @@ void Game::InitMario()
 
 void Game::InitTurtles()
 {
-	_turtle[0] = new RedTurtle(Vector2f(100.f, _floor[1]));
-	_turtle[1] = new BlueTurtle(Vector2f(100.f, _floor[2]));
-	_turtle[2] = new GreenTurtle(Vector2f(100.f, _floor[3]));
-	_turtle[3] = new YellowTurtle(Vector2f(100.f, _floor[4]));
+	
+	for (int i = 0; i < NUM_PLATFORMS - 1; i++) 
+	{
+		_redTurtles[i] = new RedTurtle(Vector2f(100.f + i * 100.f, _floor[i]));
+		_greenTurtles[i] = new GreenTurtle(Vector2f(100.f + i * 200.f, _floor[i]));
+		_blueTurtles[i] = new BlueTurtle(Vector2f(100.f + i * 300.f, _floor[i]));
+		_yellowTurtles[i] = new YellowTurtle(Vector2f(100.f + i * 400.f, _floor[i]));
+	}
 }
 
 void Game::UpdateTurtles(float deltaTime)
 {
-	for (int i = 0; i < MAX_TURTLES; i++)
+	
+	for (int i = 0; i < NUM_PLATFORMS - 1; i++)
 	{
-		if (_turtle[i] != nullptr)
+		if (_redTurtles[i] != nullptr)
 		{
-			_turtle[i]->Update(deltaTime);
+			_redTurtles[i]->Update(deltaTime);
+		}
+		if (_greenTurtles[i] != nullptr)
+		{
+			_greenTurtles[i]->Update(deltaTime);
+		}
+		if (_blueTurtles[i] != nullptr)
+		{
+			_blueTurtles[i]->Update(deltaTime);
+		}
+		if (_yellowTurtles[i] != nullptr)
+		{
+			_yellowTurtles[i]->Update(deltaTime);
 		}
 	}
 }
@@ -223,11 +240,23 @@ void Game::DrawGame()
 	_timer->Draw(*_wnd);
 	_wnd->draw(*_door);
 	_wnd->draw(*_mario);
-	for (int i = 0; i < MAX_TURTLES; i++) 
+	for (int i = 0; i < NUM_PLATFORMS - 1; i++)
 	{
-		if (_turtle[i] != nullptr)
+		if (_redTurtles[i] != nullptr)
 		{
-			_turtle[i]->Draw(_wnd);
+			_redTurtles[i]->Draw(_wnd);
+		}
+		if (_greenTurtles[i] != nullptr)
+		{
+			_greenTurtles[i]->Draw(_wnd);
+		}
+		if (_blueTurtles[i] != nullptr)
+		{
+			_blueTurtles[i]->Draw(_wnd);
+		}
+		if (_yellowTurtles[i] != nullptr)
+		{
+			_yellowTurtles[i]->Draw(_wnd);
 		}
 	}
 	_wnd->display();
@@ -237,11 +266,23 @@ Game::~Game()
 {
 
 	// Liberación de recursos
-	for (int i = 0; i < MAX_TURTLES; i++)
+	for (int i = 0; i < NUM_PLATFORMS - 1; i++)
 	{
-		if (_turtle[i] != nullptr) 
+		if (_redTurtles[i] != nullptr)
 		{
-			delete _turtle[i];
+			delete _redTurtles[i];
+		}
+		if (_greenTurtles[i] != nullptr)
+		{
+			delete _greenTurtles[i];
+		}
+		if (_blueTurtles[i] != nullptr)
+		{
+			delete _blueTurtles[i];
+		}
+		if (_yellowTurtles[i] != nullptr)
+		{
+			delete _yellowTurtles[i];
 		}
 	}
 	delete _backSp;
