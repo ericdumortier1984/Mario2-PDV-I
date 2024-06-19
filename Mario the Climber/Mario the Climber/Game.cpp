@@ -111,10 +111,13 @@ void Game::DoEvents()
 
 void Game::Loop()
 {
-
 	// Bucle principal del juego
+	Clock clock;
 	while (_wnd->isOpen())
 	{
+		Time elapsedTime = clock.restart();
+		float deltaTime = elapsedTime.asSeconds();
+
 		if (!_gameOver && !_youWin)
 		{
 			_wnd->setMouseCursorVisible(true);// Oculta el cursor del mouse
@@ -122,6 +125,7 @@ void Game::Loop()
 			DrawGame();
 			_timer->UpdateCounter();
 			_mario->Update();
+			UpdateTurtles(deltaTime);
 			ProcessCollision();
 			CheckGameConditions();
 		}
