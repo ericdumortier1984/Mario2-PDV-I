@@ -34,8 +34,10 @@ Game::Game()
 	_timer->InitCounter();
 
 
-	// Inicialización de Mario
+	// Inicio Mario
 	InitMario();
+	// Inicio tortugas
+	InitTurtles();
 
 	LoadStack();
 }
@@ -151,6 +153,25 @@ void Game::InitMario()
 	_runningRight = false;
 }
 
+void Game::InitTurtles()
+{
+	_turtle[0] = new RedTurtle(Vector2f(100.f, _floor[1]));
+	_turtle[1] = new BlueTurtle(Vector2f(100.f, _floor[2]));
+	_turtle[2] = new GreenTurtle(Vector2f(100.f, _floor[3]));
+	_turtle[3] = new YellowTurtle(Vector2f(100.f, _floor[4]));
+}
+
+void Game::UpdateTurtles(float deltaTime)
+{
+	for (int i = 0; i < MAX_TURTLES; i++)
+	{
+		if (_turtle[i] != nullptr)
+		{
+			_turtle[i]->Update(deltaTime);
+		}
+	}
+}
+
 void Game::ProcessCollision()
 {
 }
@@ -198,6 +219,13 @@ void Game::DrawGame()
 	_timer->Draw(*_wnd);
 	_wnd->draw(*_door);
 	_wnd->draw(*_mario);
+	for (int i = 0; i < MAX_TURTLES; i++) 
+	{
+		if (_turtle[i] != nullptr)
+		{
+			_turtle[i]->Draw(_wnd);
+		}
+	}
 	_wnd->display();
 }
 
@@ -205,6 +233,13 @@ Game::~Game()
 {
 
 	// Liberación de recursos
+	for (int i = 0; i < MAX_TURTLES; i++)
+	{
+		if (_turtle[i] != nullptr) 
+		{
+			delete _turtle[i];
+		}
+	}
 	delete _backSp;
 	delete _mario;
 }

@@ -3,6 +3,11 @@
 #include "Afichmation.h"
 #include "Animation.h"
 #include "Counter.h"
+#include "Turtle.h"
+#include "RedTurtle.h"
+#include "GreenTurtle.h"
+#include "BlueTurtle.h"
+#include "YellowTurtle.h"
 #include "Shell.h"
 
 class Game
@@ -13,6 +18,7 @@ private:
 	const int _w_x_max = 800;// Límite derecho de la pantalla
 	const int _floor[6] = { 30, 110, 180, 255, 335, 480 };// Posicion de las plataformas
 	const float _gravity = 0.5f;// Aceleración de la gravedad
+	static const int MAX_TURTLES = 4;
 
 	// Ventana del juego
 	RenderWindow* _wnd;
@@ -41,9 +47,14 @@ private:
 	bool _runningLeft;
 	bool _runningRight;
 
+	// Tortugas
+	Turtle* _turtle[MAX_TURTLES];
+
 	// Métodos privados
 	void DoEvents();// Maneja los eventos
 	void InitMario();// Inicializa a Mario
+	void InitTurtles();
+	void UpdateTurtles(float deltaTime);
 	void ProcessCollision();// Procesa las colisiones entre Mario y las tortugas
 	void DrawGame();
 	void CheckGameConditions();// Verifica las condiciones de victoria o derrota

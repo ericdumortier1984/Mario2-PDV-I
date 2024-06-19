@@ -135,10 +135,15 @@
   <ItemGroup>
     <ClInclude Include="Afichmation.h" />
     <ClInclude Include="Animation.h" />
+    <ClInclude Include="BlueTurtle.h" />
     <ClInclude Include="Counter.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GreenTurtle.h" />
     <ClInclude Include="Includes&amp;usings.h" />
+    <ClInclude Include="RedTurtle.h" />
     <ClInclude Include="Shell.h" />
+    <ClInclude Include="Turtle.h" />
+    <ClInclude Include="YellowTurtle.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Afichmation.cpp" />
