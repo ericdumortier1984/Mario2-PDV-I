@@ -21,7 +21,6 @@ private:
 	static const int NUM_TURTLES_PER_PLATFORM = 4;
 	static const int NUM_PLATFORMS = 7;
 
-
 	// Ventana del juego
 	RenderWindow* _wnd;
 

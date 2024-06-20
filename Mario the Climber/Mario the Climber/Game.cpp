@@ -84,14 +84,15 @@ void Game::DoEvents()
 			_runningRight = false;
 			_mario->Play("idle");
 		}
-	}
-	if (Keyboard::isKeyPressed(Keyboard::Space) && !_isJumping)// Si se presiona la tecla 'Espacio' y Mario no está saltando
-	{
-		//salto
-		_isJumping = true;
-		_velocity.y = -10.f;
-		_mario->Play("jump");
-		//_audio->PlayJump();
+
+		if (e.type == Event::KeyPressed && e.key.code == Keyboard::Space && !_isJumping)
+		{
+			//salto
+			_isJumping = true;
+			_velocity.y = -10.f;
+			_mario->Play("jump");
+			//_audio->PlayJump();
+		}
 	}
 	if (_isJumping)// Si Mario está saltando
 	{
@@ -102,6 +103,41 @@ void Game::DoEvents()
 		{
 			//llega a la plataforma
 			_mario->setPosition(Vector2f(_mario->getPosition().x, _floor[5]));// Coloca a Mario sobre la plataforma
+			_isJumping = false;// Establece que Mario ya no está saltando
+			_velocity.y = -10.f;// Reinicia la velocidad vertical inicial para el salto
+		}
+		else if (_mario->getPosition().y >= _floor[4])
+		{
+			//llega a la plataforma
+			_mario->setPosition(Vector2f(_mario->getPosition().x, _floor[4]));// Coloca a Mario sobre la plataforma
+			_isJumping = false;// Establece que Mario ya no está saltando
+			_velocity.y = -10.f;// Reinicia la velocidad vertical inicial para el salto
+		}
+		else if (_mario->getPosition().y >= _floor[3])
+		{
+			//llega a la plataforma
+			_mario->setPosition(Vector2f(_mario->getPosition().x, _floor[3]));// Coloca a Mario sobre la plataforma
+			_isJumping = false;// Establece que Mario ya no está saltando
+			_velocity.y = -10.f;// Reinicia la velocidad vertical inicial para el salto
+		}
+		else if (_mario->getPosition().y >= _floor[2])
+		{
+			//llega a la plataforma
+			_mario->setPosition(Vector2f(_mario->getPosition().x, _floor[2]));// Coloca a Mario sobre la plataforma
+			_isJumping = false;// Establece que Mario ya no está saltando
+			_velocity.y = -10.f;// Reinicia la velocidad vertical inicial para el salto
+		}
+		else if (_mario->getPosition().y >= _floor[1])
+		{
+			//llega a la plataforma
+			_mario->setPosition(Vector2f(_mario->getPosition().x, _floor[1]));// Coloca a Mario sobre la plataforma
+			_isJumping = false;// Establece que Mario ya no está saltando
+			_velocity.y = -10.f;// Reinicia la velocidad vertical inicial para el salto
+		}
+		else if (_mario->getPosition().y >= _floor[0])
+		{
+			//llega a la plataforma
+			_mario->setPosition(Vector2f(_mario->getPosition().x, _floor[0]));// Coloca a Mario sobre la plataforma
 			_isJumping = false;// Establece que Mario ya no está saltando
 			_velocity.y = -10.f;// Reinicia la velocidad vertical inicial para el salto
 		}
