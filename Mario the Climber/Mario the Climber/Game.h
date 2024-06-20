@@ -18,7 +18,7 @@ private:
 	const int _w_x_max = 800;// Límite derecho de la pantalla
 	const int _floor[7] = { 30, 110, 180, 255, 335, 410, 480 };// Posicion de las plataformas
 	const float _gravity = 0.5f;// Aceleración de la gravedad
-	//static const int MAX_TURTLES = 4;
+	static const int NUM_TURTLES_PER_PLATFORM = 4;
 	static const int NUM_PLATFORMS = 7;
 
 
@@ -51,10 +51,7 @@ private:
 
 	// Tortugas
 	// Restamos una plataforma para que no haya tortugas en el piso
-	Turtle* _redTurtles[NUM_PLATFORMS - 1];
-	Turtle* _greenTurtles[NUM_PLATFORMS - 1];
-	Turtle* _blueTurtles[NUM_PLATFORMS - 1];
-	Turtle* _yellowTurtles[NUM_PLATFORMS - 1];
+	Turtle* _turtles[NUM_PLATFORMS - 1][NUM_TURTLES_PER_PLATFORM];
 
 	// Métodos privados
 	void DoEvents();// Maneja los eventos

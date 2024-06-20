@@ -162,10 +162,10 @@ void Game::InitTurtles()
 	
 	for (int i = 0; i < NUM_PLATFORMS - 1; i++) 
 	{
-		_redTurtles[i] = new RedTurtle(Vector2f(100.f + i * 100.f, _floor[i]));
-		_greenTurtles[i] = new GreenTurtle(Vector2f(100.f + i * 200.f, _floor[i]));
-		_blueTurtles[i] = new BlueTurtle(Vector2f(100.f + i * 300.f, _floor[i]));
-		_yellowTurtles[i] = new YellowTurtle(Vector2f(100.f + i * 400.f, _floor[i]));
+		_turtles[i][0] = new RedTurtle(Vector2f(100.f + i * 5.f, _floor[i]));
+		_turtles[i][1] = new GreenTurtle(Vector2f(100.f + i * 20.f, _floor[i]));
+		_turtles[i][2] = new BlueTurtle(Vector2f(100.f + i * 30.f, _floor[i]));
+		_turtles[i][3] = new YellowTurtle(Vector2f(100.f + i * 40.f, _floor[i]));
 	}
 }
 
@@ -174,21 +174,12 @@ void Game::UpdateTurtles(float deltaTime)
 	
 	for (int i = 0; i < NUM_PLATFORMS - 1; i++)
 	{
-		if (_redTurtles[i] != nullptr)
+		for (int j = 0; j < NUM_TURTLES_PER_PLATFORM; j++) 
 		{
-			_redTurtles[i]->Update(deltaTime);
-		}
-		if (_greenTurtles[i] != nullptr)
-		{
-			_greenTurtles[i]->Update(deltaTime);
-		}
-		if (_blueTurtles[i] != nullptr)
-		{
-			_blueTurtles[i]->Update(deltaTime);
-		}
-		if (_yellowTurtles[i] != nullptr)
-		{
-			_yellowTurtles[i]->Update(deltaTime);
+			if (_turtles[i][j] != nullptr) 
+			{
+				_turtles[i][j]->Update(deltaTime);
+			}
 		}
 	}
 }
@@ -242,21 +233,12 @@ void Game::DrawGame()
 	_wnd->draw(*_mario);
 	for (int i = 0; i < NUM_PLATFORMS - 1; i++)
 	{
-		if (_redTurtles[i] != nullptr)
+		for (int j = 0; j < NUM_TURTLES_PER_PLATFORM; j++) 
 		{
-			_redTurtles[i]->Draw(_wnd);
-		}
-		if (_greenTurtles[i] != nullptr)
-		{
-			_greenTurtles[i]->Draw(_wnd);
-		}
-		if (_blueTurtles[i] != nullptr)
-		{
-			_blueTurtles[i]->Draw(_wnd);
-		}
-		if (_yellowTurtles[i] != nullptr)
-		{
-			_yellowTurtles[i]->Draw(_wnd);
+			if (_turtles[i][j] != nullptr)
+			{
+				_turtles[i][j]->Draw(_wnd);
+			}
 		}
 	}
 	_wnd->display();
@@ -268,21 +250,12 @@ Game::~Game()
 	// Liberación de recursos
 	for (int i = 0; i < NUM_PLATFORMS - 1; i++)
 	{
-		if (_redTurtles[i] != nullptr)
+		for (int j = 0; j < NUM_TURTLES_PER_PLATFORM; j++)
 		{
-			delete _redTurtles[i];
-		}
-		if (_greenTurtles[i] != nullptr)
-		{
-			delete _greenTurtles[i];
-		}
-		if (_blueTurtles[i] != nullptr)
-		{
-			delete _blueTurtles[i];
-		}
-		if (_yellowTurtles[i] != nullptr)
-		{
-			delete _yellowTurtles[i];
+			if (_turtles[i][j] != nullptr) 
+			{
+				delete _turtles[i][j];
+			}
 		}
 	}
 	delete _backSp;
