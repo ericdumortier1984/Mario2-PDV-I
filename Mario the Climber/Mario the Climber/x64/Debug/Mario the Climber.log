@@ -1,60 +1,63 @@
 ﻿  Game.cpp
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(23,36): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(105,66): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(22,36): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(111,66): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(112,66): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(118,66): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(119,66): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(125,66): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(126,66): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(132,66): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(133,66): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(139,66): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(140,66): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(146,66): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(188,45): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(194,45): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(201,68): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(207,68): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(202,71): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(208,71): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(203,70): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(209,70): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(204,72): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(210,72): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-  Go.cpp
-  Generando código...
+C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(241,68): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
   Mario the Climber.vcxproj -> C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\x64\Debug\Mario the Climber.exe

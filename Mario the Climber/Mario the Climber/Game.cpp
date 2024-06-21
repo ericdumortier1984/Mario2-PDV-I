@@ -8,7 +8,6 @@ Game::Game()
 	_wnd->setFramerateLimit(60);
 	_gameOver = false;
 	_youWin = false;
-	_shellGetToPop = NULL;
 
 	// Inicialización del fondo
 	_backTx = new Texture;
@@ -28,18 +27,25 @@ Game::Game()
 	_font->loadFromFile("Asset/Font/junegull.ttf");
 	_gameOverText = new Text;
 	_gameOverText->setFont(*_font);
+	_gameOverText->setCharacterSize(50);
+	_gameOverText->setPosition(Vector2f(300.f, 300.f));
 
 	// Inicialización del temporizador
 	_timer = new Counter();
 	_timer->InitCounter();
 
+	// Inicialización del audio
+	_audio = new Audio;
+	if (!_gameOver)
+	{
+		_audio->PlayClock();// Inicia el reloj si el juego no ha terminado
+	}
 
-	// Inicio Mario
+	// Inicialización Mario
 	InitMario();
-	// Inicio tortugas
-	InitTurtles();
 
-	LoadStack();
+	// Inicialización tortugas
+	InitTurtles();
 }
 
 void Game::DoEvents()
@@ -91,7 +97,7 @@ void Game::DoEvents()
 			_isJumping = true;
 			_velocity.y = -10.f;
 			_mario->Play("jump");
-			//_audio->PlayJump();
+			_audio->PlayJump();
 		}
 	}
 	if (_isJumping)// Si Mario está saltando
@@ -222,37 +228,69 @@ void Game::UpdateTurtles(float deltaTime)
 
 void Game::ProcessCollision()
 {
+	
+	for (int i = 0; i < NUM_PLATFORMS - 1; i++)
+	{
+		for (int j = 0; j < NUM_TURTLES_PER_PLATFORM; j++)
+		{
+			if (_turtles[i][j] != nullptr && _mario->getGlobalBounds().intersects(_turtles[i][j]->GetGlobalBounds()))
+			{
+				// Si Mario choca con la tortuga
+				if (_mario->getPosition().x && _mario->getPosition().y < _turtles[i][j]->GetPosition().x && _turtles[i][j]->GetPosition().y)
+				{
+					_mario->setPosition(Vector2f(_mario->getPosition().x, _floor[6]));
+				}
+			}
+		}
+	}
+
+	// Verificar si Mario ha llegado a la puerta
+	if (_mario->getGlobalBounds().intersects(_door->getGlobalBounds())) 
+	{
+		_youWin = true;
+		_audio->StopClock();
+	}
 }
 
 void Game::CheckGameConditions()
 {
+	// Si se agotó el tiempo y no se ha ganado, es derrota
+	if (_timer->TimeUp() && !_youWin)
+	{
+		_audio->StopClock();
+		_gameOver = true;
+	}
 }
 
 void Game::GameOver()
 {
-}
+	// Muestra la pantalla de "Game Over"
+	if (_gameOver || _youWin)
+	{
+		if (_gameOver)
+		{
+			_gameOverText->setString("GAME OVER");
+		}
+		else if (_youWin)
+		{
+			_gameOverText->setString("¡YOU WIN!");
+		}
+	}
 
-void Game::PushShell(int _x)
-{
+	Event evt;
+	while (_wnd->waitEvent(evt))
+	{
+		if (evt.type == Event::Closed) 
+		{
+			_wnd->close();
+		}
 
-	Shell* newShell = new Shell(_x, _wnd->getSize().y);
-	newShell->_nextShell = _shellStack;
-	_shellStack = newShell;
-}
-
-void Game::PopShell()
-{
-
-	Shell* aux = _shellStack;
-	_shellGetToPop = aux->_shellSp;
-	_shellStack = aux->_nextShell;
-	delete aux;
-}
-
-void Game::LoadStack()
-{
-
-	PushShell(50);
+		_wnd->clear(Color::Cyan);
+		_wnd->draw(*_gameOverText);
+		_wnd->setMouseCursorVisible(true);
+		_wnd->display();
+		if (evt.key.code == Keyboard::R) { _wnd->close(); new Game; };//reiniciar juego
+	}
 }
 
 void Game::DrawGame()
@@ -260,13 +298,8 @@ void Game::DrawGame()
 	//Limpia la ventana, dibuja y muestra todos los elementos
 	_wnd->clear();
 	_wnd->draw(*_backSp);
-	if (_shellGetToPop != NULL)
-	{
-		_wnd->draw(*_shellGetToPop);
-	}
 	_timer->Draw(*_wnd);
 	_wnd->draw(*_door);
-	_wnd->draw(*_mario);
 	for (int i = 0; i < NUM_PLATFORMS - 1; i++)
 	{
 		for (int j = 0; j < NUM_TURTLES_PER_PLATFORM; j++) 
@@ -277,6 +310,7 @@ void Game::DrawGame()
 			}
 		}
 	}
+	_wnd->draw(*_mario);
 	_wnd->display();
 }
 
@@ -284,6 +318,10 @@ Game::~Game()
 {
 
 	// Liberación de recursos
+	delete _gameOverText;
+	delete _mario;
+	delete _audio;
+	delete _timer;
 	for (int i = 0; i < NUM_PLATFORMS - 1; i++)
 	{
 		for (int j = 0; j < NUM_TURTLES_PER_PLATFORM; j++)
@@ -295,5 +333,4 @@ Game::~Game()
 		}
 	}
 	delete _backSp;
-	delete _mario;
 }

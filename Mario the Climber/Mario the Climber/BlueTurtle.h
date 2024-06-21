@@ -12,13 +12,25 @@ public:
 		_sprite = new Sprite(*_texture);
 		_sprite->setPosition(position);
 		_sprite->setOrigin(_sprite->getOrigin().x / 2, _sprite->getOrigin().y - 15);
+		_globalBounds = _sprite->getGlobalBounds();
 		_speed = 50.f;
+	}
+
+	Vector2f GetPosition() override
+	{
+		return _position;
+	}
+
+	FloatRect GetGlobalBounds() override
+	{
+		return _globalBounds;
 	}
 
 	void Update(float deltaTime) override
 	{
 		_sprite->move(_speed * deltaTime, 0.f);
-		// Agregar lógica de movimiento específica de la tortuga roja
+		_position = _sprite->getPosition();
+		_globalBounds = _sprite->getGlobalBounds();
 	}
 
 	void Draw(RenderWindow* window) override
