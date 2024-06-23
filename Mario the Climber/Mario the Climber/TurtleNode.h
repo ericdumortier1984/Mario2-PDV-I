@@ -4,6 +4,7 @@
 
 class TurtleNode 
 {
+public:
 
 public:
     Turtle* turtle;

@@ -52,7 +52,7 @@ private:
 	// Tortugas
 	// Restamos una plataforma para que no haya tortugas en el piso
 	//Turtle* _turtles[NUM_PLATFORMS - 1][NUM_TURTLES_PER_PLATFORM];
-	TurtleNode* _turtleStacks[NUM_PLATFORMS - 1];
+	TurtleNode* _turtleLists[NUM_PLATFORMS - 1];
 	float _turn[NUM_PLATFORMS - 1];
 	const float _delay = 2.0f; // Retraso entre la activación de cada tortuga
 	const float _distance = 30.0f; // Espacio entre tortugas
