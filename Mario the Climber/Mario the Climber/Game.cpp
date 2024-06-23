@@ -202,26 +202,32 @@ void Game::InitMario()
 void Game::InitTurtles()
 {
 	
-	for (int i = 0; i < NUM_PLATFORMS - 1; i++) 
+	for (int i = 0; i < NUM_PLATFORMS - 1; i++)
 	{
-		_turtles[i][0] = new RedTurtle(Vector2f(100.f + i * 5.f, _floor[i]));
-		_turtles[i][1] = new GreenTurtle(Vector2f(100.f + i * 20.f, _floor[i]));
-		_turtles[i][2] = new BlueTurtle(Vector2f(100.f + i * 30.f, _floor[i]));
-		_turtles[i][3] = new YellowTurtle(Vector2f(100.f + i * 40.f, _floor[i]));
+		_turtleStacks[i] = nullptr;
+		_turtleStacks[i] = new TurtleNode(new RedTurtle(Vector2f(_w_x_min, _floor[i])));
+		_turtleStacks[i]->next = new TurtleNode(new GreenTurtle(Vector2f(_w_x_min + _distance, _floor[i])));
+		_turtleStacks[i]->next->next = new TurtleNode(new BlueTurtle(Vector2f(_w_x_min + 2 * _distance, _floor[i])));
+		_turtleStacks[i]->next->next->next = new TurtleNode(new YellowTurtle(Vector2f(_w_x_min + 3 * _distance, _floor[i])));
+		_turn[i] = 0.0f;
 	}
 }
 
 void Game::UpdateTurtles(float deltaTime)
 {
 	
-	for (int i = 0; i < NUM_PLATFORMS - 1; i++)
+	for (int i = 0; i < NUM_PLATFORMS - 1; i++) 
 	{
-		for (int j = 0; j < NUM_TURTLES_PER_PLATFORM; j++) 
+		_turn[i] += deltaTime;
+		TurtleNode* current = _turtleStacks[i];
+		while (current != nullptr) 
 		{
-			if (_turtles[i][j] != nullptr) 
+			if (_turn[i] >= _delay * (current == _turtleStacks[i] ? 0 : 1) && !current->isActive) 
 			{
-				_turtles[i][j]->Update(deltaTime);
+				current->isActive = true;
+				current->turtle->Update(deltaTime);
 			}
+			current = current->next;
 		}
 	}
 }
@@ -229,7 +235,7 @@ void Game::UpdateTurtles(float deltaTime)
 void Game::ProcessCollision()
 {
 	
-	for (int i = 0; i < NUM_PLATFORMS - 1; i++)
+	/*for (int i = 0; i < NUM_PLATFORMS - 1; i++)
 	{
 		for (int j = 0; j < NUM_TURTLES_PER_PLATFORM; j++)
 		{
@@ -242,7 +248,7 @@ void Game::ProcessCollision()
 				}
 			}
 		}
-	}
+	}*/
 
 	// Verificar si Mario ha llegado a la puerta
 	if (_mario->getGlobalBounds().intersects(_door->getGlobalBounds())) 
@@ -300,14 +306,17 @@ void Game::DrawGame()
 	_wnd->draw(*_backSp);
 	_timer->Draw(*_wnd);
 	_wnd->draw(*_door);
-	for (int i = 0; i < NUM_PLATFORMS - 1; i++)
+	
+	for (int i = 0; i < NUM_PLATFORMS - 1; i++) 
 	{
-		for (int j = 0; j < NUM_TURTLES_PER_PLATFORM; j++) 
+		TurtleNode* current = _turtleStacks[i];
+		while (current != nullptr)
 		{
-			if (_turtles[i][j] != nullptr)
+			if (current->isActive) 
 			{
-				_turtles[i][j]->Draw(_wnd);
+				current->turtle->Draw(_wnd);
 			}
+			current = current->next;
 		}
 	}
 	_wnd->draw(*_mario);
@@ -322,14 +331,15 @@ Game::~Game()
 	delete _mario;
 	delete _audio;
 	delete _timer;
-	for (int i = 0; i < NUM_PLATFORMS - 1; i++)
+	for (int i = 0; i < NUM_PLATFORMS - 1; i++) 
 	{
-		for (int j = 0; j < NUM_TURTLES_PER_PLATFORM; j++)
+		TurtleNode* current = _turtleStacks[i];
+		while (current != nullptr)
 		{
-			if (_turtles[i][j] != nullptr) 
-			{
-				delete _turtles[i][j];
-			}
+			TurtleNode* temp = current;
+			current = current->next;
+			delete temp->turtle;
+			delete temp;
 		}
 	}
 	delete _backSp;

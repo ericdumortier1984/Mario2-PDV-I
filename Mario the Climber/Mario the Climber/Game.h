@@ -4,6 +4,7 @@
 #include "Animation.h"
 #include "Counter.h"
 #include "Audio.h"
+#include "TurtleNode.h"
 #include "Turtle.h"
 #include "RedTurtle.h"
 #include "GreenTurtle.h"
@@ -50,12 +51,16 @@ private:
 
 	// Tortugas
 	// Restamos una plataforma para que no haya tortugas en el piso
-	Turtle* _turtles[NUM_PLATFORMS - 1][NUM_TURTLES_PER_PLATFORM];
+	//Turtle* _turtles[NUM_PLATFORMS - 1][NUM_TURTLES_PER_PLATFORM];
+	TurtleNode* _turtleStacks[NUM_PLATFORMS - 1];
+	float _turn[NUM_PLATFORMS - 1];
+	const float _delay = 2.0f; // Retraso entre la activación de cada tortuga
+	const float _distance = 30.0f; // Espacio entre tortugas
 
 	// Métodos privados
 	void DoEvents();// Maneja los eventos
 	void InitMario();// Inicializa a Mario
-	void InitTurtles();// Imicia tortugas
+	void InitTurtles();// Inicia tortugas
 	void UpdateTurtles(float deltaTime);
 	void ProcessCollision();// Procesa las colisiones entre Mario y las tortugas
 	void DrawGame();

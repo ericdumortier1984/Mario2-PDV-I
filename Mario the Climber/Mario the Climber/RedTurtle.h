@@ -5,7 +5,7 @@ class RedTurtle : public Turtle
 {
 public:
 
-	RedTurtle(const Vector2f& position) 
+	RedTurtle(const Vector2f& position)
 	{
 		_texture = new Texture;
 		_texture->loadFromFile("Asset/Images/shell_rojo.png");
@@ -17,24 +17,26 @@ public:
 	}
 
 	Vector2f GetPosition() override
-	{ 
+	{
 		return _position;
 	}
 
 	FloatRect GetGlobalBounds() override
 	{
 		return _globalBounds;
-	}
-
-	void Update(float deltaTime) override 
-	{
-		_sprite->move(_speed * deltaTime, 0.f);
 		_position = _sprite->getPosition();
 		_globalBounds = _sprite->getGlobalBounds();
+	}
+
+	void Update(float deltaTime) override
+	{
+		_sprite->move(_speed * deltaTime, 0.f);
 	}
 
 	void Draw(RenderWindow* window) override
 	{
 		window->draw(*_sprite);
 	}
+
+
 };
