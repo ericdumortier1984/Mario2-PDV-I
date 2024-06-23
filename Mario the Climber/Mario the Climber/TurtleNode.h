@@ -6,7 +6,6 @@ class TurtleNode
 {
 public:
 
-public:
     Turtle* turtle;
     TurtleNode* next;
     bool isActive;

@@ -13,6 +13,8 @@ protected:
 
 public:
 
+	virtual void SetPosition(const Vector2f& pos) = 0;
+	virtual void Move(float dx, float dy) = 0;
 	virtual FloatRect GetGlobalBounds() = 0;
 	virtual Vector2f GetPosition() = 0;
 	virtual void Update(float deltaTime) = 0;

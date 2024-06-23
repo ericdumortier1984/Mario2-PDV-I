@@ -16,9 +16,22 @@ public:
 		_speed = 50.f;
 	}
 
+	void SetPosition(const Vector2f& pos) override
+	{
+		_position = pos;
+		_sprite->setPosition(_position);
+	}
+
 	Vector2f GetPosition() override
 	{
 		return _position;
+	}
+
+	void Move(float dx, float dy) override
+	{
+		_position.x += dx;
+		_position.y += dy;
+		_sprite->setPosition(_position);
 	}
 
 	FloatRect GetGlobalBounds() override
@@ -37,6 +50,4 @@ public:
 	{
 		window->draw(*_sprite);
 	}
-
-
 };

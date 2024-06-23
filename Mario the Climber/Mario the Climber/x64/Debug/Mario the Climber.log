@@ -1,111 +1,105 @@
-﻿  Afichmation.cpp
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Afichmation.cpp(17,30): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Afichmation.cpp(17,18): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Afichmation.cpp(35,30): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Afichmation.cpp(35,18): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Afichmation.cpp(109,12): warning C4018: '>': no coinciden signed/unsigned
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Afichmation.cpp(124,11): warning C4244: 'inicializando': conversión de 'T' a 'int'; posible pérdida de datos
+﻿  Game.cpp
+C:\Users\gabri\Desktop\Probar mario 2\Mario the Climber\Mario the Climber\Game.cpp(22,36): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\gabri\Desktop\Probar mario 2\Mario the Climber\Mario the Climber\Game.cpp(111,66): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Afichmation.cpp(131,11): warning C4244: 'inicializando': conversión de 'T' a 'int'; posible pérdida de datos
+C:\Users\gabri\Desktop\Probar mario 2\Mario the Climber\Mario the Climber\Game.cpp(118,66): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-  Audio.cpp
-  Counter.cpp
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Counter.cpp(32,19): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Counter.cpp(54,9): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-  Game.cpp
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(22,36): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(111,66): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+C:\Users\gabri\Desktop\Probar mario 2\Mario the Climber\Mario the Climber\Game.cpp(125,66): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(118,66): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+C:\Users\gabri\Desktop\Probar mario 2\Mario the Climber\Mario the Climber\Game.cpp(132,66): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(125,66): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+C:\Users\gabri\Desktop\Probar mario 2\Mario the Climber\Mario the Climber\Game.cpp(139,66): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(132,66): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+C:\Users\gabri\Desktop\Probar mario 2\Mario the Climber\Mario the Climber\Game.cpp(146,66): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(139,66): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+C:\Users\gabri\Desktop\Probar mario 2\Mario the Climber\Mario the Climber\Game.cpp(194,45): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(146,66): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+C:\Users\gabri\Desktop\Probar mario 2\Mario the Climber\Mario the Climber\Game.cpp(210,78): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(194,45): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+C:\Users\gabri\Desktop\Probar mario 2\Mario the Climber\Mario the Climber\Game.cpp(210,60): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(210,78): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+C:\Users\gabri\Desktop\Probar mario 2\Mario the Climber\Mario the Climber\Game.cpp(211,98): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(210,60): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+C:\Users\gabri\Desktop\Probar mario 2\Mario the Climber\Mario the Climber\Game.cpp(212,107): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(211,98): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+C:\Users\gabri\Desktop\Probar mario 2\Mario the Climber\Mario the Climber\Game.cpp(213,115): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(212,107): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+C:\Users\gabri\Desktop\Probar mario 2\Mario the Climber\Mario the Climber\Game.cpp(216,82): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(213,115): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+C:\Users\gabri\Desktop\Probar mario 2\Mario the Climber\Mario the Climber\Game.cpp(216,64): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(216,82): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+C:\Users\gabri\Desktop\Probar mario 2\Mario the Climber\Mario the Climber\Game.cpp(229,84): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(216,64): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+C:\Users\gabri\Desktop\Probar mario 2\Mario the Climber\Mario the Climber\Game.cpp(242,87): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(229,84): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+C:\Users\gabri\Desktop\Probar mario 2\Mario the Climber\Mario the Climber\Game.cpp(255,89): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(242,87): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+C:\Users\gabri\Desktop\Probar mario 2\Mario the Climber\Mario the Climber\Game.cpp(293,45): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Game.cpp(255,89): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+C:\Users\gabri\Desktop\Probar mario 2\Mario the Climber\Mario the Climber\Game.cpp(315,45): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\gabri\Desktop\Probar mario 2\Mario the Climber\Mario the Climber\Game.cpp(350,68): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
   Go.cpp
   Generando código...
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Counter.cpp(79): warning C4715: 'Counter::TimeUp': no todas las rutas de acceso de control devuelven un valor
-  Mario the Climber.vcxproj -> C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\x64\Debug\Mario the Climber.exe
+  Mario the Climber.vcxproj -> C:\Users\gabri\Desktop\Probar mario 2\Mario the Climber\x64\Debug\Mario the Climber.exe

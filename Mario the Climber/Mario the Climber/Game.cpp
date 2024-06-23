@@ -274,29 +274,51 @@ void Game::InitTurtles()
 void Game::UpdateTurtles(float deltaTime)
 {
 	
-	for (int i = 0; i < NUM_PLATFORMS - 1; i++) 
+	for (int i = 0; i < NUM_PLATFORMS - 1; i++)
 	{
 		_turn[i] += deltaTime;
-		if (i < 3) { // Plataformas 0, 1 y 2 usan pilas
+		if (i < 3)
+		{ // Plataformas 0, 1 y 2 usan pilas
 			TurtleNode* current = _turtleLists[i];
 			while (current != nullptr)
 			{
-				if (_turn[i] >= _delay * (current == _turtleLists[i] ? 0 : 1) && !current->isActive) 
+				if (_turn[i] >= _delay * (current == _turtleLists[i] ? 0 : 1) && !current->isActive)
 				{
 					current->isActive = true;
 					current->turtle->Update(deltaTime);
+
+					// Mueve a la tortuga horizontalmente
+					if (current->turtle->GetPosition().x >= _w_x_max)
+					{
+						current->turtle->SetPosition(Vector2f(_w_x_min, current->turtle->GetPosition().y));
+					}
+					else
+					{
+						current->turtle->Move(5.0f, 0.0f); // Ajusta la velocidad horizontal de las tortugas
+					}
 				}
 				current = current->next;
 			}
 		}
 		else { // Plataformas 3, 4 y 5 usan colas
 			TurtleNode* current = _turtleLists[i - 3];
-			while (current != nullptr) 
+			while (current != nullptr)
 			{
 				if (_turn[i] >= _delay * (current == _turtleLists[i - 3] ? 0 : 1) && !current->isActive)
 				{
 					current->isActive = true;
 					current->turtle->Update(deltaTime);
+
+					// Mueve a la tortuga horizontalmente
+					if (current->turtle->GetPosition().x >= _w_x_max)
+					{
+						current->turtle->SetPosition(Vector2f(_w_x_min, current->turtle->GetPosition().y));
+					}
+					else
+					{
+						current->turtle->Move(5.0f, 0.0f); // Ajusta la velocidad horizontal de las tortugas
+					}
+
 					_turtleLists[i - 3] = current->next;
 					break;
 				}
@@ -308,27 +330,29 @@ void Game::UpdateTurtles(float deltaTime)
 
 void Game::ProcessCollision()
 {
-	
-	/*for (int i = 0; i < NUM_PLATFORMS - 1; i++)
-	{
-		for (int j = 0; j < NUM_TURTLES_PER_PLATFORM; j++)
-		{
-			if (_turtles[i][j] != nullptr && _mario->getGlobalBounds().intersects(_turtles[i][j]->GetGlobalBounds()))
-			{
-				// Si Mario choca con la tortuga
-				if (_mario->getPosition().x && _mario->getPosition().y < _turtles[i][j]->GetPosition().x && _turtles[i][j]->GetPosition().y)
-				{
-					_mario->setPosition(Vector2f(_mario->getPosition().x, _floor[6]));
-				}
-			}
-		}
-	}*/
-
 	// Verificar si Mario ha llegado a la puerta
 	if (_mario->getGlobalBounds().intersects(_door->getGlobalBounds())) 
 	{
 		_youWin = true;
 		_audio->StopClock();
+	}
+
+	// Verificar colisión entre Mario y las tortugas
+	for (int i = 0; i < NUM_PLATFORMS - 1; i++)
+	{
+		TurtleNode* current = _turtleLists[i];
+		while (current != nullptr)
+		{
+			if (current->isActive && _mario->getGlobalBounds().intersects(current->turtle->GetGlobalBounds()))
+			{
+				// Si Mario no está saltando, hacerlo caer al primer piso
+				{
+					_mario->setPosition(Vector2f(_mario->getPosition().x, _floor[6]));
+				}
+				break;
+			}
+			current = current->next;
+		}
 	}
 }
 
