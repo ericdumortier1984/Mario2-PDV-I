@@ -1,12 +1,15 @@
 #include "Tail.h"
 
+//Constructor de la clase "Tail", que toma la altura del piso como parámetro y llama a la función "LoadTail()"
 Tail::Tail(float h) 
 {
 	_floor = h;
 	LoadTail(); 
 }
 
-
+/* Esta función inicializa la cola, estableciendo la posición inicial, */
+/* el índice y el color del primer nodo, */
+/* y luego agrega 4 nodos a la cola utilizando la función "PushTail()" */
 void Tail::LoadTail()
 {
 	_posTail = 30; 
@@ -20,7 +23,8 @@ void Tail::LoadTail()
 	}
 }
 
-
+/* Esta función agrega un nuevo nodo a la cola, estableciendo su color y posición, */
+/* y actualizando los punteros al primer y último nodo de la cola */
 void Tail::PushTail()
 {
 	
@@ -71,7 +75,9 @@ void Tail::PushTail()
 	}
 }
 
-
+/* Esta función elimina el primer nodo de la cola, */
+/* actualizando los punteros y llamando a la función "UpdateTail()" */
+/* para ajustar la posición de los nodos restantes */
 void Tail::PopTail()
 {
 
@@ -86,7 +92,7 @@ void Tail::PopTail()
 	}
 }
 
-
+//Esta función dibuja todos los nodos de la cola en la ventana de renderizado proporcionada
 void Tail::Draw(RenderWindow& window)
 {
 
@@ -106,7 +112,7 @@ void Tail::Draw(RenderWindow& window)
 	}
 }
 
-
+//Esta función mueve la cola desplazando el primer nodo pasando un entero como parámetro para darle velocidad
 void Tail::MoveTail()
 {
 	
@@ -116,7 +122,7 @@ void Tail::MoveTail()
 	}
 }
 
-
+//Esta función actualiza la posición de los nodos de la cola, estableciendo la posición correcta de cada nodo
 void Tail::UpdateTail()
 {
 
@@ -133,8 +139,21 @@ void Tail::UpdateTail()
 	}
 }
 
-
+//Esta función devuelve el sprite del primer nodo de la cola
 Sprite Tail::GetSprite()
 {
+	
 	return _firstTail->GetSprite();
+}
+
+//Este destructor recorre la lista de nodos de la cola y libera la memoria asignada a cada uno de ellos
+Tail::~Tail()
+{
+	Node* current = _firstTail;
+	while (current != nullptr)
+	{
+		Node* next = current->_next;
+		delete current;
+		current = next;
+	}
 }

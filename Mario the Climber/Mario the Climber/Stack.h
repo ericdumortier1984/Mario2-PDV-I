@@ -1,17 +1,17 @@
-#pragma once
-#include "Includes&usings.h"
+#pragma once //Evita definiciones duplicadas
+#include "Includes&usings.h" //Contiene bibliotecas y definiciones utilizadas en el codigo
 #include "Node.h"
 
 class Stack
 {
 private:
 
-	float _floor;
-
-	int _indexColorStack1;
-	int _indexColorStack2;
-	string _colorStack1;
-	string _colorStack2;
+	float _floor; //Altura del piso como número flotante
+	
+	int _indexColorStack1; //Índice del color actual de la primera pila como número entero
+	int _indexColorStack2; //Índice del color actual de segunda pila como número entero
+	string _colorStack1; //
+	string _colorStack2; //
 
 	Node* _stack1 = NULL; 
 	Node* _stack2 = NULL; 
@@ -26,8 +26,9 @@ private:
 public:
 
 	Stack(float h); 
-	void Draw(RenderWindow& window); 
+	~Stack();
 
+	void Draw(RenderWindow& window); 
 	void LoadStack();
 	void PushStack1(Node* newNode);
 	void PushStack2(Node* aux);

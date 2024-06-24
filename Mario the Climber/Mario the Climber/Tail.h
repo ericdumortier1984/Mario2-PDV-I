@@ -1,28 +1,32 @@
-#pragma once
-#include "Includes&usings.h"
+#pragma once //Evita definiciones duplicadas
+#include "Includes&usings.h" //Contiene bibliotecas y definiciones utilizadas en el codigo
 #include "Node.h"
 
 class Tail
 {
 private:
 
-	float _floor;
-	int _indexColorTail;
-	string _colorTail;
+	float _floor; //Altura del piso como número flotante
+	int _indexColorTail; //Índice del color actual de la cola como número entero
+	string _colorTail; //Color actual de la cola como cadena de texto
 
-	Node* _firstTail = NULL;
-	Node* _lastTail = NULL;
-	float _posTail; 
+	Node* _firstTail = NULL; //Puntero al primer nodo de la cola
+	Node* _lastTail = NULL; //Puntero al último nodo de la cola
+	float _posTail; //Posición inicial de la cola como flotante
 
 public:
 
-	Tail(float h);
-	void Draw(RenderWindow& window); 
+	Tail(float h); //Constuctor que toma la posicion del piso como parámetro
+	~Tail(); // Deconstructor
+	
+	//Funciones miembros publicas sin retorno
+	void Draw(RenderWindow& window); //Permite dibujar la cola pasando la ventana como referencia
+	void LoadTail(); //Permite inicializar la cola
+	void PushTail(); //Permite agregar nodos en la cola
+	void PopTail(); //Permite eliminar nodos de la cola
+	void UpdateTail(); //permite actualizar la cola
+	void MoveTail(); //Permite mover la cola
 
-	void LoadTail();
-	void PushTail(); 
-	void PopTail(); 
-	void UpdateTail();
-	void MoveTail(); 
-	Sprite GetSprite(); 
+	//Función miembro publica con retorno
+	Sprite GetSprite(); //Permite obtener el sprite del primer nodo de la cola
 };

@@ -181,3 +181,22 @@ Sprite Stack::GetSpriteStack2()
 		return _stack2->GetSprite();
 	}
 }
+
+Stack::~Stack()
+{
+	// Liberar memoria de la primera pila
+	while (_stack1 != nullptr)
+	{
+		Node* temp = _stack1;
+		_stack1 = _stack1->_next;
+		delete temp;
+	}
+
+	// Liberar memoria de la segunda pila
+	while (_stack2 != nullptr)
+	{
+		Node* temp = _stack2;
+		_stack2 = _stack2->_next;
+		delete temp;
+	}
+}

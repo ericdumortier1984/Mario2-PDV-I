@@ -9,18 +9,36 @@ Game::Game()
 	_gameOver = false;
 	_youWin = false;
 
-	// Inicialización del fondo
+	// Inicialización del fondo y la puerta
 	_backTx = new Texture;
 	_backSp = new Sprite;
 	_backTx->loadFromFile("Asset/Images/fondo_plataformas.png");
 	_backSp->setTexture(*_backTx);
-
 	_doorTx = new Texture;
 	_door = new Sprite;
 	_doorTx->loadFromFile("Asset/Images/puerta.png");
 	_door->setTexture(*_doorTx);
 	_door->setPosition(370, _floor[0] - 4);
 	_door->setOrigin(_door->getOrigin().x / 2, 0);
+	cout << "[LEVEL:OK]" << endl;
+
+	// Inicialización Mario
+	InitMario();
+	cout << "[MARIO:OK]" << endl;
+
+	// incializamos los enemigos:	
+	tail1 = new Tail(_floor[0]); // creo una cola en el piso 1
+	stack1 = new Stack(_floor[1]); // creo una pila en el piso 2
+	tail2 = new Tail(_floor[2]); // creo una cola en el piso 3
+	stack2 = new Stack(_floor[3]); // creo una pila en el piso 4
+	tail3 = new Tail(_floor[4]); // creo una cola en el piso 5
+	stack3 = new Stack(_floor[5]); // creo una pila en el piso 6
+	cout << "[ENEMIES:OK]" << endl;
+
+	// Inicialización del temporizador
+	_timer = new Counter();
+	_timer->InitCounter();
+	cout << "[TIMER:OK]" << endl;
 
 	// Inicialización de textos y fuente
 	_font = new Font;
@@ -29,10 +47,7 @@ Game::Game()
 	_gameOverText->setFont(*_font);
 	_gameOverText->setCharacterSize(50);
 	_gameOverText->setPosition(Vector2f(300.f, 300.f));
-
-	// Inicialización del temporizador
-	_timer = new Counter();
-	_timer->InitCounter();
+	cout << "[TEXTS:OK]" << endl;
 
 	// Inicialización del audio
 	_audio = new Audio;
@@ -40,17 +55,7 @@ Game::Game()
 	{
 		_audio->PlayClock();// Inicia el reloj si el juego no ha terminado
 	}
-
-	// Inicialización Mario
-	InitMario();
-
-	// incializamos los enemigos:	
-	tail1 = new Tail(_floor[0] + 40); // creo una cola en el piso 1
-	stack1 = new Stack(_floor[1] + 40); // creo una pila en el piso 2
-	tail2 = new Tail(_floor[2] + 40); // creo una cola en el piso 3
-	stack2 = new Stack(_floor[3] + 40); // creo una pila en el piso 4
-	tail3 = new Tail(_floor[4] + 40); // creo una cola en el piso 5
-	stack3 = new Stack(_floor[5] + 40); // creo una pila en el piso 6
+	cout << "[AUDIO:OK]" << endl;
 }
 
 void Game::DoEvents()
@@ -167,7 +172,7 @@ void Game::Loop()
 
 		if (!_gameOver && !_youWin)
 		{
-			_wnd->setMouseCursorVisible(true);// Oculta el cursor del mouse
+			_wnd->setMouseCursorVisible(false);// Oculta el cursor del mouse
 			DoEvents();
 			DrawGame();
 			_timer->UpdateCounter();
@@ -220,6 +225,34 @@ void Game::InitMario()
 
 void Game::ProcessCollision()
 {
+	// Verificar si Mario colisiona con las pilas de tortugas
+	 if ((stack1->GetSpriteStack1().getGlobalBounds().intersects(_mario->getGlobalBounds())))
+	{
+		_mario->setPosition(Vector2f(_mario->getPosition().x, _floor[6]));
+	}
+	 if ((stack2->GetSpriteStack1().getGlobalBounds().intersects(_mario->getGlobalBounds())))
+	 {
+		 _mario->setPosition(Vector2f(_mario->getPosition().x, _floor[6]));
+	 }
+	 if ((stack3->GetSpriteStack1().getGlobalBounds().intersects(_mario->getGlobalBounds())))
+	 {
+		 _mario->setPosition(Vector2f(_mario->getPosition().x, _floor[6]));
+	 }
+
+	// Verificar si Mario colisiona con las colas de tortugas
+	 if ((tail1->GetSprite().getGlobalBounds().intersects(_mario->getGlobalBounds())))
+	 {
+		 _mario->setPosition(Vector2f(_mario->getPosition().x, _floor[6]));
+	 }
+	 if ((tail2->GetSprite().getGlobalBounds().intersects(_mario->getGlobalBounds())))
+	 {
+		 _mario->setPosition(Vector2f(_mario->getPosition().x, _floor[6]));
+	 }
+	 if ((tail3->GetSprite().getGlobalBounds().intersects(_mario->getGlobalBounds())))
+	 {
+		 _mario->setPosition(Vector2f(_mario->getPosition().x, _floor[6]));
+	 }
+
 	// Verificar si Mario ha llegado a la puerta
 	if (_mario->getGlobalBounds().intersects(_door->getGlobalBounds())) 
 	{

@@ -1,31 +1,10 @@
-﻿  Afichmation.cpp
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Afichmation.cpp(17,30): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Afichmation.cpp(17,18): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Afichmation.cpp(35,30): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Afichmation.cpp(35,18): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Afichmation.cpp(109,12): warning C4018: '>': no coinciden signed/unsigned
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Afichmation.cpp(124,11): warning C4244: 'inicializando': conversión de 'T' a 'int'; posible pérdida de datos
-          with
-          [
-              T=float
-          ]
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Afichmation.cpp(131,11): warning C4244: 'inicializando': conversión de 'T' a 'int'; posible pérdida de datos
-          with
-          [
-              T=float
-          ]
-  Audio.cpp
-  Counter.cpp
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Counter.cpp(32,19): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Counter.cpp(54,9): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-  Game.cpp
+﻿  Game.cpp
   Go.cpp
   Node.cpp
   Stack.cpp
   Tail.cpp
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Tail.cpp(18,17): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Tail.cpp(21,17): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
   Generando código...
 C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Stack.cpp(175): warning C4715: 'Stack::GetSpriteStack1': no todas las rutas de acceso de control devuelven un valor
 C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Stack.cpp(183): warning C4715: 'Stack::GetSpriteStack2': no todas las rutas de acceso de control devuelven un valor
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Counter.cpp(79): warning C4715: 'Counter::TimeUp': no todas las rutas de acceso de control devuelven un valor
   Mario the Climber.vcxproj -> C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\x64\Debug\Mario the Climber.exe
