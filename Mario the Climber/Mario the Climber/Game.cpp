@@ -44,8 +44,13 @@ Game::Game()
 	// Inicialización Mario
 	InitMario();
 
-	// Inicialización tortugas
-	InitTurtles();
+	// incializamos los enemigos:	
+	tail1 = new Tail(_floor[0] + 40); // creo una cola en el piso 1
+	stack1 = new Stack(_floor[1] + 40); // creo una pila en el piso 2
+	tail2 = new Tail(_floor[2] + 40); // creo una cola en el piso 3
+	stack2 = new Stack(_floor[3] + 40); // creo una pila en el piso 4
+	tail3 = new Tail(_floor[4] + 40); // creo una cola en el piso 5
+	stack3 = new Stack(_floor[5] + 40); // creo una pila en el piso 6
 }
 
 void Game::DoEvents()
@@ -167,7 +172,21 @@ void Game::Loop()
 			DrawGame();
 			_timer->UpdateCounter();
 			_mario->Update();
-			UpdateTurtles(deltaTime);
+			stack1->MoveStack();
+			stack1->PopStack1();
+			stack1->PopStack2();
+			stack2->MoveStack();
+			stack2->PopStack1();
+			stack2->PopStack2();
+			stack3->MoveStack();
+			stack3->PopStack1();
+			stack3->PopStack2();
+			tail1->MoveTail();
+			tail1->PopTail();
+			tail2->MoveTail();
+			tail2->PopTail();
+			tail3->MoveTail();
+			tail3->PopTail();
 			ProcessCollision();
 			CheckGameConditions();
 		}
@@ -199,135 +218,6 @@ void Game::InitMario()
 	_runningRight = false;
 }
 
-void Game::InitTurtles()
-{
-	
-	for (int i = 0; i < NUM_PLATFORMS - 1; i++) 
-	{
-		if (i < 3) 
-		{ // Plataformas 0, 1 y 2 usan listas tipo pila
-			_turtleLists[i] = nullptr;
-			_turtleLists[i] = new TurtleNode(new RedTurtle(Vector2f(_w_x_min, _floor[i])));
-			_turtleLists[i]->next = new TurtleNode(new GreenTurtle(Vector2f(_w_x_min + _distance, _floor[i])));
-			_turtleLists[i]->next->next = new TurtleNode(new BlueTurtle(Vector2f(_w_x_min + 2 * _distance, _floor[i])));
-			_turtleLists[i]->next->next->next = new TurtleNode(new YellowTurtle(Vector2f(_w_x_min + 3 * _distance, _floor[i])));
-		}
-		else { // Plataformas 3, 4 y 5 usan listas tipo cola
-			TurtleNode* newNode = new TurtleNode(new RedTurtle(Vector2f(_w_x_min, _floor[i])));
-			if (_turtleLists[i - 3] == nullptr) 
-			{
-				_turtleLists[i - 3] = newNode;
-			}
-			else {
-				TurtleNode* current = _turtleLists[i - 3];
-				while (current->next != nullptr)
-				{
-					current = current->next;
-				}
-				current->next = newNode;
-			}
-			newNode = new TurtleNode(new GreenTurtle(Vector2f(_w_x_min + _distance, _floor[i])));
-			if (_turtleLists[i - 3]->next == nullptr) 
-			{
-				_turtleLists[i - 3]->next = newNode;
-			}
-			else
-			{
-				TurtleNode* current = _turtleLists[i - 3]->next;
-				while (current->next != nullptr) {
-					current = current->next;
-				}
-				current->next = newNode;
-			}
-			newNode = new TurtleNode(new BlueTurtle(Vector2f(_w_x_min + 2 * _distance, _floor[i])));
-			if (_turtleLists[i - 3]->next->next == nullptr)
-			{
-				_turtleLists[i - 3]->next->next = newNode;
-			}
-			else {
-				TurtleNode* current = _turtleLists[i - 3]->next->next;
-				while (current->next != nullptr) 
-				{
-					current = current->next;
-				}
-				current->next = newNode;
-			}
-			newNode = new TurtleNode(new YellowTurtle(Vector2f(_w_x_min + 3 * _distance, _floor[i])));
-			if (_turtleLists[i - 3]->next->next->next == nullptr) 
-			{
-				_turtleLists[i - 3]->next->next->next = newNode;
-			}
-			else 
-			{
-				TurtleNode* current = _turtleLists[i - 3]->next->next->next;
-				while (current->next != nullptr) 
-				{
-					current = current->next;
-				}
-				current->next = newNode;
-			}
-		}
-		_turn[i] = 0.0f;
-	}
-}
-
-void Game::UpdateTurtles(float deltaTime)
-{
-	
-	for (int i = 0; i < NUM_PLATFORMS - 1; i++)
-	{
-		_turn[i] += deltaTime;
-		if (i < 3)
-		{ // Plataformas 0, 1 y 2 usan pilas
-			TurtleNode* current = _turtleLists[i];
-			while (current != nullptr)
-			{
-				if (_turn[i] >= _delay * (current == _turtleLists[i] ? 0 : 1) && !current->isActive)
-				{
-					current->isActive = true;
-					current->turtle->Update(deltaTime);
-
-					// Mueve a la tortuga horizontalmente
-					if (current->turtle->GetPosition().x >= _w_x_max)
-					{
-						current->turtle->SetPosition(Vector2f(_w_x_min, current->turtle->GetPosition().y));
-					}
-					else
-					{
-						current->turtle->Move(5.0f, 0.0f); // Ajusta la velocidad horizontal de las tortugas
-					}
-				}
-				current = current->next;
-			}
-		}
-		else { // Plataformas 3, 4 y 5 usan colas
-			TurtleNode* current = _turtleLists[i - 3];
-			while (current != nullptr)
-			{
-				if (_turn[i] >= _delay * (current == _turtleLists[i - 3] ? 0 : 1) && !current->isActive)
-				{
-					current->isActive = true;
-					current->turtle->Update(deltaTime);
-
-					// Mueve a la tortuga horizontalmente
-					if (current->turtle->GetPosition().x >= _w_x_max)
-					{
-						current->turtle->SetPosition(Vector2f(_w_x_min, current->turtle->GetPosition().y));
-					}
-					else
-					{
-						current->turtle->Move(5.0f, 0.0f); // Ajusta la velocidad horizontal de las tortugas
-					}
-
-					_turtleLists[i - 3] = current->next;
-					break;
-				}
-				current = current->next;
-			}
-		}
-	}
-}
-
 void Game::ProcessCollision()
 {
 	// Verificar si Mario ha llegado a la puerta
@@ -335,24 +225,6 @@ void Game::ProcessCollision()
 	{
 		_youWin = true;
 		_audio->StopClock();
-	}
-
-	// Verificar colisión entre Mario y las tortugas
-	for (int i = 0; i < NUM_PLATFORMS - 1; i++)
-	{
-		TurtleNode* current = _turtleLists[i];
-		while (current != nullptr)
-		{
-			if (current->isActive && _mario->getGlobalBounds().intersects(current->turtle->GetGlobalBounds()))
-			{
-				// Si Mario no está saltando, hacerlo caer al primer piso
-				{
-					_mario->setPosition(Vector2f(_mario->getPosition().x, _floor[6]));
-				}
-				break;
-			}
-			current = current->next;
-		}
 	}
 }
 
@@ -404,32 +276,15 @@ void Game::DrawGame()
 	_wnd->draw(*_backSp);
 	_timer->Draw(*_wnd);
 	_wnd->draw(*_door);
-	for (int i = 0; i < NUM_PLATFORMS - 1; i++)
-	{
-		if (i < 3) { // Plataformas 0, 1 y 2 usan pilas
-			TurtleNode* current = _turtleLists[i];
-			while (current != nullptr)
-			{
-				if (current->isActive)
-				{
-					current->turtle->Draw(_wnd);
-				}
-				current = current->next;
-			}
-		}
-		else
-		{ // Plataformas 3, 4 y 5 usan colas
-			TurtleNode* current = _turtleLists[i - 3];
-			while (current != nullptr)
-			{
-				if (current->isActive)
-				{
-					current->turtle->Draw(_wnd);
-				}
-				current = current->next;
-			}
-		}
-	}
+	// dibujamos pilas y colas
+	stack1->Draw(*_wnd);
+	tail1->Draw(*_wnd);
+
+	stack2->Draw(*_wnd);
+	tail2->Draw(*_wnd);
+
+	stack3->Draw(*_wnd);
+	tail3->Draw(*_wnd);
 	_wnd->draw(*_mario);
 	_wnd->display();
 }
@@ -442,29 +297,5 @@ Game::~Game()
 	delete _mario;
 	delete _audio;
 	delete _timer;
-	for (int i = 0; i < NUM_PLATFORMS - 1; i++) 
-	{
-		if (i < 3) 
-		{ // Plataformas 0, 1 y 2 usan listas tipo pila
-			TurtleNode* current = _turtleLists[i];
-			while (current != nullptr)
-			{
-				TurtleNode* temp = current;
-				current = current->next;
-				delete temp->turtle;
-				delete temp;
-			}
-		}
-		else { // Plataformas 3, 4 y 5 usan listas tipo cola
-			TurtleNode* current = _turtleLists[i - 3];
-			while (current != nullptr) 
-			{
-				TurtleNode* temp = current;
-				current = current->next;
-				delete temp->turtle;
-				delete temp;
-			}
-		}
-	}
 	delete _backSp;
 }

@@ -4,12 +4,9 @@
 #include "Animation.h"
 #include "Counter.h"
 #include "Audio.h"
-#include "TurtleNode.h"
-#include "Turtle.h"
-#include "RedTurtle.h"
-#include "GreenTurtle.h"
-#include "BlueTurtle.h"
-#include "YellowTurtle.h"
+#include "Node.h"
+#include "Stack.h"
+#include "Tail.h"
 
 class Game
 {
@@ -17,10 +14,16 @@ private:
 	// Propiedades relacionadas con el mundo del juego
 	const int _w_x_min = 0;// Límite izquierdo de la pantalla
 	const int _w_x_max = 800;// Límite derecho de la pantalla
-	const int _floor[7] = { 30, 110, 180, 255, 335, 410, 480 };// Posicion de las plataformas
+	const float _floor[7] = { 30.f, 110.f, 180.f, 255.f, 335.f, 410.f, 480.f };// Posicion de las plataformas
 	const float _gravity = 0.5f;// Aceleración de la gravedad
-	static const int NUM_TURTLES_PER_PLATFORM = 4;
-	static const int NUM_PLATFORMS = 7;
+
+	// creo una instancia del enemigo
+	Stack* stack1 = NULL;
+	Stack* stack2 = NULL;
+	Stack* stack3 = NULL;
+	Tail* tail1 = NULL;
+	Tail* tail2 = NULL;
+	Tail* tail3 = NULL;
 
 	// Ventana del juego
 	RenderWindow* _wnd;
@@ -49,18 +52,9 @@ private:
 	bool _runningLeft;
 	bool _runningRight;
 
-	// Tortugas
-	// Restamos una plataforma para que no haya tortugas en el piso
-	TurtleNode* _turtleLists[NUM_PLATFORMS - 1];
-	float _turn[NUM_PLATFORMS - 1];
-	const float _delay = 2.0f; // Retraso entre la activación de cada tortuga
-	const float _distance = 30.0f; // Espacio entre tortugas
-
 	// Métodos privados
 	void DoEvents();// Maneja los eventos
 	void InitMario();// Inicializa a Mario
-	void InitTurtles();// Inicia tortugas
-	void UpdateTurtles(float deltaTime);
 	void ProcessCollision();// Procesa las colisiones entre Mario y las tortugas
 	void DrawGame();
 	void CheckGameConditions();// Verifica las condiciones de victoria o derrota
