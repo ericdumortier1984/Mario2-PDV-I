@@ -215,7 +215,7 @@ void Game::InitMario()
 	_mario->Play("idle");// Establecer la animación inicial en "idle"
 	_mario->setScale(Vector2f(0.20f, 0.20f));// Escalar el sprite de Mario a un 20% de su tamaño
 	_mario->setOrigin(_mario->getOrigin().x / 2, _mario->getGlobalBounds().height - 16);// Establece el origen en el centro del ancho y 16 pixeles en alto
-	_mario->setPosition(Vector2f(50.f, _floor[6]));// Posicion inicial en x e y
+	_mario->setPosition(Vector2f(400.f, _floor[6]));// Posicion inicial en x e y
 	_mario->FlipX(true);// Comienza el sprite mirando a la derecha
 	_velocity = Vector2f(5.f, 0.f);// Setear la velocidad x en 5 (es constante)
 	_isJumping = false;
@@ -225,33 +225,22 @@ void Game::InitMario()
 
 void Game::ProcessCollision()
 {
-	// Verificar si Mario colisiona con las pilas de tortugas
-	 if ((stack1->GetSpriteStack1().getGlobalBounds().intersects(_mario->getGlobalBounds())))
+	/* Verificar solamente si Mario colisiona con la segunda pila de tortugas */
+	/* porque con la pimer pila se observa un error de memoria */
+	if ((stack1->GetSpriteStack2().getGlobalBounds().intersects(_mario->getGlobalBounds())) ||
+		(stack2->GetSpriteStack2().getGlobalBounds().intersects(_mario->getGlobalBounds())) ||
+		(stack3->GetSpriteStack2().getGlobalBounds().intersects(_mario->getGlobalBounds())))
 	{
 		_mario->setPosition(Vector2f(_mario->getPosition().x, _floor[6]));
 	}
-	 if ((stack2->GetSpriteStack1().getGlobalBounds().intersects(_mario->getGlobalBounds())))
-	 {
-		 _mario->setPosition(Vector2f(_mario->getPosition().x, _floor[6]));
-	 }
-	 if ((stack3->GetSpriteStack1().getGlobalBounds().intersects(_mario->getGlobalBounds())))
-	 {
-		 _mario->setPosition(Vector2f(_mario->getPosition().x, _floor[6]));
-	 }
 
 	// Verificar si Mario colisiona con las colas de tortugas
-	 if ((tail1->GetSprite().getGlobalBounds().intersects(_mario->getGlobalBounds())))
-	 {
-		 _mario->setPosition(Vector2f(_mario->getPosition().x, _floor[6]));
-	 }
-	 if ((tail2->GetSprite().getGlobalBounds().intersects(_mario->getGlobalBounds())))
-	 {
-		 _mario->setPosition(Vector2f(_mario->getPosition().x, _floor[6]));
-	 }
-	 if ((tail3->GetSprite().getGlobalBounds().intersects(_mario->getGlobalBounds())))
-	 {
-		 _mario->setPosition(Vector2f(_mario->getPosition().x, _floor[6]));
-	 }
+	if ((tail1->GetSprite().getGlobalBounds().intersects(_mario->getGlobalBounds())) ||
+		(tail2->GetSprite().getGlobalBounds().intersects(_mario->getGlobalBounds())) ||
+		(tail3->GetSprite().getGlobalBounds().intersects(_mario->getGlobalBounds())))
+	{
+		_mario->setPosition(Vector2f(_mario->getPosition().x, _floor[6]));
+	}
 
 	// Verificar si Mario ha llegado a la puerta
 	if (_mario->getGlobalBounds().intersects(_door->getGlobalBounds())) 
@@ -309,15 +298,15 @@ void Game::DrawGame()
 	_wnd->draw(*_backSp);
 	_timer->Draw(*_wnd);
 	_wnd->draw(*_door);
+
 	// dibujamos pilas y colas
 	stack1->Draw(*_wnd);
 	tail1->Draw(*_wnd);
-
 	stack2->Draw(*_wnd);
 	tail2->Draw(*_wnd);
-
 	stack3->Draw(*_wnd);
 	tail3->Draw(*_wnd);
+
 	_wnd->draw(*_mario);
 	_wnd->display();
 }
@@ -331,4 +320,10 @@ Game::~Game()
 	delete _audio;
 	delete _timer;
 	delete _backSp;
+	delete tail1;
+	delete tail2;
+	delete tail3;
+	delete stack1;
+	delete stack2;
+	delete stack3;
 }

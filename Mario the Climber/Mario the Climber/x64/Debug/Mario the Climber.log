@@ -1,10 +1,2 @@
 ﻿  Game.cpp
-  Go.cpp
-  Node.cpp
-  Stack.cpp
-  Tail.cpp
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Tail.cpp(21,17): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-  Generando código...
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Stack.cpp(175): warning C4715: 'Stack::GetSpriteStack1': no todas las rutas de acceso de control devuelven un valor
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Stack.cpp(183): warning C4715: 'Stack::GetSpriteStack2': no todas las rutas de acceso de control devuelven un valor
   Mario the Climber.vcxproj -> C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\x64\Debug\Mario the Climber.exe

@@ -1,5 +1,5 @@
-#pragma once //Evita definiciones duplicadas
-#include "Includes&usings.h" //Contiene bibliotecas y definiciones utilizadas en el codigo
+#pragma once //Directiva para evitar inclusiones múltiples del archivo
+#include "Includes&usings.h" //Incluye archivos y definiciones de uso general
 #include "Node.h"
 
 class Tail

@@ -1,5 +1,5 @@
-#pragma once
-#include "Includes&usings.h"
+#pragma once //Directiva para evitar inclusiones múltiples del archivo
+#include "Includes&usings.h" //Incluye archivos y definiciones de uso general
 #include "Afichmation.h"
 #include "Animation.h"
 #include "Counter.h"
@@ -14,10 +14,10 @@ private:
 	// Propiedades relacionadas con el mundo del juego
 	const int _w_x_min = 0;// Límite izquierdo de la pantalla
 	const int _w_x_max = 800;// Límite derecho de la pantalla
-	const float _floor[7] = { 30.f, 110.f, 180.f, 255.f, 335.f, 410.f, 480.f };// Posicion de las plataformas
+	const float _floor[7] = { 30.f, 110.f, 180.f, 255.f, 335.f, 410.f, 480.f };// Posición de las plataformas
 	const float _gravity = 0.5f;// Aceleración de la gravedad
 
-	// creo una instancia del enemigo
+	//Creo las instancias del enemigo
 	Stack* stack1 = NULL;
 	Stack* stack2 = NULL;
 	Stack* stack3 = NULL;
