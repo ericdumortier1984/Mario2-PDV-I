@@ -28,6 +28,6 @@ public:
 
 	//Funciones miembros publicas con retorno
 	float GetPosX(); //Permite obtener la posicion en X del nodo
-	Sprite GetSprite(); //Permite obtener su Sprite
+	Sprite& GetSprite(); //Permite obtener su Sprite
 	String GetColor(); //Permite obtener el color del nodo
 };

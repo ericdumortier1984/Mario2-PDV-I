@@ -22,8 +22,8 @@ public:
 	//Funciones miembros publicas sin retorno
 	void Draw(RenderWindow& window); //Permite dibujar la cola pasando la ventana como referencia
 	void LoadTail(); //Permite inicializar la cola
-	void PushTail(); //Permite agregar nodos en la cola
-	void PopTail(); //Permite eliminar nodos de la cola
+	void Insert(); //Permite agregar nodos en la cola
+	void Remove(); //Permite eliminar nodos de la cola
 	void UpdateTail(); //permite actualizar la cola
 	void MoveTail(); //Permite mover la cola
 

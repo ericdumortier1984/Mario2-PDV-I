@@ -12,8 +12,8 @@ class Game
 {
 private:
 	// Propiedades relacionadas con el mundo del juego
-	const int _w_x_min = 0;// Límite izquierdo de la pantalla
-	const int _w_x_max = 800;// Límite derecho de la pantalla
+	const float _w_x_min = 0.0;// Límite izquierdo de la pantalla
+	const float _w_x_max = 800.0;// Límite derecho de la pantalla
 	const float _floor[7] = { 30.f, 110.f, 180.f, 255.f, 335.f, 410.f, 480.f };// Posición de las plataformas
 	const float _gravity = 0.5f;// Aceleración de la gravedad
 

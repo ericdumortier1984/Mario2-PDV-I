@@ -187,11 +187,11 @@ void Game::Loop()
 			stack3->PopStack1();
 			stack3->PopStack2();
 			tail1->MoveTail();
-			tail1->PopTail();
+			tail1->Remove();
 			tail2->MoveTail();
-			tail2->PopTail();
+			tail2->Remove();
 			tail3->MoveTail();
-			tail3->PopTail();
+			tail3->Remove();
 			ProcessCollision();
 			CheckGameConditions();
 		}
@@ -225,8 +225,14 @@ void Game::InitMario()
 
 void Game::ProcessCollision()
 {
-	/* Verificar solamente si Mario colisiona con la segunda pila de tortugas */
-	/* porque con la pimer pila se observa un error de memoria */
+	// Verificar si mario colisiona con las pilas 1 y 2
+	if ((stack1->GetSpriteStack1().getGlobalBounds().intersects(_mario->getGlobalBounds())) ||
+		(stack2->GetSpriteStack1().getGlobalBounds().intersects(_mario->getGlobalBounds())) ||
+		(stack3->GetSpriteStack1().getGlobalBounds().intersects(_mario->getGlobalBounds())))
+	{
+		_mario->setPosition(Vector2f(_mario->getPosition().x, _floor[6]));
+	}
+
 	if ((stack1->GetSpriteStack2().getGlobalBounds().intersects(_mario->getGlobalBounds())) ||
 		(stack2->GetSpriteStack2().getGlobalBounds().intersects(_mario->getGlobalBounds())) ||
 		(stack3->GetSpriteStack2().getGlobalBounds().intersects(_mario->getGlobalBounds())))

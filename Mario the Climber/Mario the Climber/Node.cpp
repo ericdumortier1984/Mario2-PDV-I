@@ -34,7 +34,7 @@ void Node::SetTexture(string texture)
 }
 
 //Esta función devuelve una copia del sprite del nodo
-Sprite Node::GetSprite()
+Sprite& Node::GetSprite()
 {
 	return *_sprite;
 }
@@ -58,7 +58,7 @@ float Node::GetPosX()
 //Esta función establece la posición del nodo.
 void Node::SetPosition(Vector2f pos)
 {
-	_sprite->setPosition(pos);
+	//_sprite->setPosition(pos);
 }
 
 //Esta función devuelve el color del nodo.
@@ -72,5 +72,5 @@ Node::~Node()
 {
 	
 	delete _sprite;
-	delete _texture;
+	//delete _texture;
 }

@@ -19,13 +19,13 @@ void Tail::LoadTail()
 	for (int i = 0; i < 4; i++) //Agrega 4 nodos a la cola
 	{
 		_posTail = 30 - i * 30; //Calcula la posición del nuevo nodo
-		PushTail(); //Llama a la función PushTail() para agregar un nuevo nodo
+		Insert(); //Llama a la función PushTail() para agregar un nuevo nodo
 	}
 }
 
 /* Esta función agrega un nuevo nodo a la cola, estableciendo su color y posición, */
 /* y actualizando los punteros al primer y último nodo de la cola */
-void Tail::PushTail()
+void Tail::Insert()
 {
 	//Establece el color del nuevo nodo en función del índice de color
 	switch (_indexColorTail)
@@ -80,7 +80,7 @@ void Tail::PushTail()
 /* Esta función elimina el primer nodo de la cola, */
 /* actualizando los punteros y llamando a la función "UpdateTail()" */
 /* para ajustar la posición de los nodos restantes */
-void Tail::PopTail()
+void Tail::Remove()
 {
 
 	if (_firstTail->GetPosX() > 800) //Si el primer nodo ha salido de la pantalla
@@ -90,7 +90,7 @@ void Tail::PopTail()
 		_firstTail = _aux->_next; //Actualiza el puntero al primer nodo
 		delete _aux;  //Elimina el primer nodo
 		UpdateTail(); //Actualiza la posición de los nodos restantes
-		PushTail(); //Agrega un nuevo nodo al final de la cola
+		Remove(); //Agrega un nuevo nodo al final de la cola
 	}
 }
 
