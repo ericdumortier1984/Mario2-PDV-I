@@ -17,7 +17,6 @@ Audio::Audio()
 Audio::~Audio()
 {
 	// En el destructor, se eliminan los objetos Sound y SoundBuffer
-	delete _fall;
 	delete _clock;
 	delete _jump;
 }

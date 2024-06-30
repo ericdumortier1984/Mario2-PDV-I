@@ -1,5 +1,5 @@
 #include "Game.h"
-
+// To fix: error de meoria al iniciar la pila 2
 int main()
 {
 

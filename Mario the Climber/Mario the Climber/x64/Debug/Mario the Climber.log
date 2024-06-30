@@ -1,4 +1,6 @@
-﻿  Stack.cpp
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Stack.cpp(177): warning C4715: 'Stack::GetSpriteStack1': no todas las rutas de acceso de control devuelven un valor
-C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\Mario the Climber\Stack.cpp(185): warning C4715: 'Stack::GetSpriteStack2': no todas las rutas de acceso de control devuelven un valor
+﻿  Audio.cpp
+  Game.cpp
+  Go.cpp
+  Node.cpp
+  Generando código...
   Mario the Climber.vcxproj -> C:\Users\gabri\Documents\ERIC CURSO\Tecnicatura en Videojuegos\PROGRAMACIÓN DE VIDEOJUEGOS I\ENTREGAS\Mario2-PDV-I\Mario the Climber\x64\Debug\Mario the Climber.exe
